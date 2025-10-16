@@ -1,29 +1,3 @@
-@import './assets/styles/css/d727f3511bbe70dd.css';
-@import './assets/styles/css/7a1ff1b3cbfa1e37.css';
-@import './assets/styles/css/dc1770d68e9c756a.css';
-@import './assets/styles/css/137ee7d7806bf616.css';
-@import './assets/styles/css/2a51bd9a57b07b4d.css';
-@import './assets/styles/css/8d7812367497383c.css';
 @import "tailwindcss";
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #02040e;
-  color: white;
-  overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
-}

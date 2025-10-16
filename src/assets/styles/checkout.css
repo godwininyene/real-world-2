@@ -1,0 +1,121 @@
+:after,
+:before {
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+}
+
+:after,
+:before {
+    --tw-content: "";
+}
+
+p {
+    margin: 0;
+}
+
+:disabled {
+    cursor: default;
+}
+
+img {
+    display: block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+*,
+:after,
+:before {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59, 130, 246, .5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+}
+
+.texture-text {
+    background-color: #fff;
+    background-image: url(/checkout/_next/media/text_texture.9a5aa96e.webp);
+    -webkit-text-fill-color: transparent;
+    background-position: 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.texture-text-gray {
+    background-color: #9e9e9e;
+    background-image: url(/checkout/_next/media/text_texture.9a5aa96e.webp);
+    -webkit-text-fill-color: transparent;
+    background-position: 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.toggle-bg-monthly {
+    background: linear-gradient(180deg, #1E2E3C 0%, #0E1923 100%);
+}
+
+.toggle-bg-yearly {
+    background: linear-gradient(109.78deg, #FFFFFF -13.37%, #ECC870 38.96%, #867240 138.03%);
+}
+
+.toggle-knob-monthly {
+    background: linear-gradient(109.78deg, #FFFFFF -13.37%, #ECC870 38.96%, #867240 138.03%);
+}
+
+.toggle-knob-yearly {
+    background: linear-gradient(180deg, #1E2E3C 0%, #0E1923 100%);
+}
+
+.CountdownTimerComponent {
+    background: linear-gradient(90deg, rgba(255, 0, 0, .4), rgba(255, 0, 0, .63) 38.25%, rgba(255, 0, 0, .95) 49.62%, rgba(233, 0, 0, .68) 60.38%, rgba(153, 0, 0, .4));
+    border-bottom: 1px solid red;
+}
+
+.CountdownTimerComponent.complete {
+    background: linear-gradient(90deg, rgba(255, 128, 0, .4), rgba(255, 128, 0, .63) 38.25%, rgba(255, 128, 0, .95) 49.62%, rgba(255, 128, 0, .68) 60.38%, rgba(255, 128, 0, .4));
+    border-bottom: 1px solid #ff8000;
+}
+
+.glow {
+    background: radial-gradient(42.52% 42.52% at 50% 26.25%, rgba(233, 155, 11, .452) 0, transparent 100%);
+    opacity: .5;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    margin-top: -100px;
+    left: calc(50% - 400px);
+    pointer-events: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#payment-section {
+    scroll-margin-top: 20px;
+}
+
+body {
+    background-color: #060E15;
+    height: fit-content;
+}
+
+input {
+    border-width: 1px;
+}
