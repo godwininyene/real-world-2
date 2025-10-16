@@ -1,0 +1,74 @@
+.ReviewsControls {
+    border: 2px solid #152838;
+    padding: 24px;
+    background-color: #14222f38
+}
+
+.percentBarContainer {
+    border: 2px solid #2b4e67;
+    border-radius: 50px;
+    flex-grow: 1;
+    height: 20px
+}
+
+.percentBar {
+    background: linear-gradient(93.73deg, #ffcf23 19.79%, #ff8d3a 103.7%);
+    height: 100%;
+    border-radius: 50px
+}
+
+.reviewCheckbox {
+    border: 3px solid #2b4e67;
+    background-color: #21354936;
+    height: 24px;
+    width: 24px;
+    cursor: pointer
+}
+
+.reviewCheckbox.active {
+    background: linear-gradient(93.73deg, #ffcf23 19.79%, #ff8d3a 103.7%)
+}
+
+.reviewCheckbox:hover {
+    background-color: #32608d7a
+}
+
+.review {
+    border: 2px solid #152838;
+    background-color: #14222f38
+}
+
+.reviewHeader {
+    border-bottom: 2px solid #152838;
+    justify-content: space-between;
+    gap: 24px
+}
+
+.ReviewContent,
+.reviewHeader {
+    padding: 24px;
+    display: flex;
+    flex-direction: column
+}
+
+.ReviewContent h5 {
+    line-height: 24px
+}
+
+@media screen and (min-width:1024px) {
+    .reviewCheckbox {
+        height: 62px;
+        width: 62px
+    }
+    .reviewHeader {
+        padding: 36px;
+        flex-direction: row;
+        align-items: center
+    }
+    .ReviewContent {
+        padding: 36px
+    }
+    .ReviewContent h5 {
+        line-height: 32px
+    }
+}

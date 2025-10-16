@@ -1,0 +1,18 @@
+.CountdownHero .text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px
+}
+
+.CountdownHero .text .gradient {
+    background: -webkit-linear-gradient(93.53deg, #ffcf23 55.23%, #ff8d3a 99.07%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+@media screen and (min-width:1024px) {
+    .CountdownHero .text {
+        font-size: 24px;
+        line-height: 25px
+    }
+}

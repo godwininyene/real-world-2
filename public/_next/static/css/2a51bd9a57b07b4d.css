@@ -1,0 +1,33 @@
+.CountdownTimerComponent {
+    background: linear-gradient(90deg, rgba(255, 0, 0, .4), rgba(255, 0, 0, .63) 38.25%, rgba(255, 0, 0, .95) 49.62%, rgba(233, 0, 0, .68) 60.38%, rgba(153, 0, 0, .4));
+    border-bottom: 1px solid red
+}
+
+.CountdownTimerComponent.complete {
+    background: linear-gradient(90deg, rgba(255, 128, 0, .4), rgba(255, 128, 0, .63) 38.25%, rgba(255, 128, 0, .95) 49.62%, rgba(255, 128, 0, .68) 60.38%, rgba(255, 128, 0, .4));
+    border-bottom: 1px solid #ff8000
+}
+
+.LargeCountdown h2 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 38px
+}
+
+.LargeCountdown p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    color: hsla(0, 0%, 100%, .5)
+}
+
+@media screen and (min-width:1024px) {
+    .LargeCountdown h2 {
+        font-size: 65px;
+        line-height: 50px
+    }
+    .LargeCountdown p {
+        font-size: 25px;
+        line-height: 25px
+    }
+}

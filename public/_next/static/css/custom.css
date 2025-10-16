@@ -1,0 +1,60 @@
+/* Font definitions - keep these */
+@font-face {
+    font-family: sans;
+    src: url(/_next/static/media/c44738e2d67c7de3-s.p.ttf) format("truetype");
+    font-display: swap;
+    font-weight: 100 400 500 600 900;
+}
+
+@font-face {
+    font-family: sans Fallback;
+    src: local("Arial");
+    ascent-override: 91.05%;
+    descent-override: 21.64%;
+    line-gap-override: 9.01%;
+    size-adjust: 110.93%;
+}
+
+/* Add all other @font-face rules from the original file */
+
+/* CSS Custom Properties - keep these */
+:root {
+    --background: #060e15;
+    --background-b: #02040e;
+    --primary-1: #ffcf23;
+    --primary-2: #ff8d3a;
+    --secondary-1: #23201e;
+    --secondary-2: #141312;
+    --white80: #ffffffcc;
+    --white70: #ffffffb2;
+    --gray-1: #a3a3a3;
+    --gray-2: #a7a297;
+    --cream-1: #fbebd9;
+    --cream-2: #faf3e1;
+    --campus: #171d27;
+}
+
+/* Essential component styles that can't be easily replaced with Tailwind */
+.gradient-text {
+    background: -webkit-linear-gradient(0deg, #fff, hsla(0, 0%, 100%, .61) 70%, hsla(0, 0%, 61%, .6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-2 {
+    background-image: linear-gradient(126deg, #ffcf23, #ff8d3a);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* .texture-text {
+    background-color: #fff;
+    background-image: url(/text_texture.webp);
+    -webkit-text-fill-color: transparent;
+    background-position: 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+} */
+
+/* Add other essential custom styles that are unique to your design */

@@ -1,0 +1,183 @@
+.rootc .button-container {
+    border: none;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    border-radius: 200px
+}
+
+.rootc .button-container:hover {
+    width: 100%
+}
+
+.rootc .button-container.bad {
+    background-color: transparent
+}
+
+.rootc .path .description {
+    margin-bottom: 0
+}
+
+.rootc .newglow-c {
+    background: radial-gradient(42.52% 42.52% at 50% 26.25%, #fa7a1d3d 0, transparent 60%);
+    opacity: .5;
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    pointer-events: none
+}
+
+.rootc .bg-gradient-gold {
+    background: linear-gradient(100.33deg, #ffcf23 5.1%, #ff8d3a 83.56%)
+}
+
+.rootc .glow-c {
+    background: radial-gradient(42.52% 42.52% at 50% 26.25%, #fcfdff85 0, #c3c3c300 100%);
+    width: 500px;
+    height: 650px;
+    top: 0;
+    margin-top: -200px;
+    right: calc(40% - 250px)
+}
+
+.rootc .glow-c,
+.rootc .glow-orange-c {
+    opacity: .5;
+    position: absolute;
+    pointer-events: none;
+    z-index: 50
+}
+
+.rootc .glow-orange-c {
+    background: radial-gradient(42.52% 42.52% at 50% 50%, #e7a51650 0, #c3c3c300 100%);
+    width: 1000px;
+    height: 1000px
+}
+
+.rootc .glowborder {
+    background: linear-gradient(96.84deg, rgba(2, 4, 14, 0), #ffcf23 26.78%, #ff8d3a 62.5%, rgba(2, 4, 14, 0) 89.28%);
+    height: 5px;
+    width: 100%;
+    max-width: 780px
+}
+
+.rootc .glowborderwhite {
+    background: linear-gradient(96.84deg, rgba(2, 4, 14, 0), #fff 26.78%, #fff 62.5%, rgba(2, 4, 14, 0) 89.28%);
+    height: 5px;
+    width: 100%;
+    max-width: 780px
+}
+
+.rootc .glowbox {
+    background: radial-gradient(42.52% 42.52% at 50% 50%, #ffcf2350 0, #ff8d3a00 100%);
+    opacity: .5;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    pointer-events: none;
+    z-index: 50
+}
+
+.rootc .button-container.special {
+    border: 2px solid hsla(0, 0%, 100%, .5);
+    background: transparent;
+    border-radius: 200px;
+    padding: 4px
+}
+
+.rootc .button-container.special button {
+    background: transparent;
+    color: #fff;
+    border: 2px solid hsla(0, 0%, 100%, .25);
+    border-radius: 200px;
+    font-family: var(--font-switzer);
+    text-transform: capitalize;
+    font-weight: 400;
+    padding: 16px 32px !important
+}
+
+.rootc h2.special {
+    font-size: 50px;
+    line-height: 50px
+}
+
+.rootc h2 {
+    font-size: 47px;
+    line-height: 47px
+}
+
+.rootc h3 {
+    font-size: 16px;
+    line-height: 16px
+}
+
+.rootc h4 {
+    font-size: 50px;
+    line-height: 50px
+}
+
+.rootc h5 {
+    font-size: 32px;
+    font-weight: 600
+}
+
+.rootc .reviews h2 {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -.04em
+}
+
+.rootc .reviews h3 {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px
+}
+
+.rootc .reviews h4 {
+    font-size: 28px;
+    line-height: 28px
+}
+
+.rootc .reviews h5 {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: var(--font-sf)
+}
+
+@media screen and (min-width:1024px) {
+    .rootc h2.special {
+        font-size: 85px;
+        line-height: 85px
+    }
+    .rootc h2 {
+        font-size: 55.5px;
+        font-weight: 600;
+        line-height: 56px
+    }
+    .rootc h3 {
+        font-size: 16px;
+        line-height: 16px
+    }
+    .rootc h4 {
+        font-size: 50px;
+        line-height: 50px
+    }
+    .rootc h5 {
+        font-size: 32px;
+        font-weight: 600
+    }
+    .reviews h2 {
+        font-size: 20px
+    }
+    .rootc .reviews h3 {
+        font-size: 16px;
+        line-height: 20px
+    }
+    .rootc .reviews h4 {
+        font-size: 35px;
+        line-height: 35px
+    }
+}

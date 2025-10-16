@@ -1,0 +1,169 @@
+.defi {
+    background-color: #050510
+}
+
+.defi h2.special {
+    font-size: 34px;
+    line-height: 42px
+}
+
+.defi h2,
+.defi h2.special {
+    font-family: var(--font-neuepower);
+    font-weight: 800
+}
+
+.defi h2 {
+    font-size: 28px;
+    line-height: 36px
+}
+
+.defi h3 {
+    font-family: var(--font-sf);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -.04rem
+}
+
+.defi h4 {
+    font-family: var(--font-neuepower);
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px
+}
+
+.defi p {
+    font-family: var(--font-sf);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px
+}
+
+.defi .bottom-fade {
+    background: linear-gradient(180deg, transparent, #050510)
+}
+
+.defi .top-fade {
+    background: linear-gradient(0deg, transparent, #050510)
+}
+
+.defi .left-fade {
+    background: linear-gradient(270deg, transparent, #050510)
+}
+
+.defi .right-fade {
+    background: linear-gradient(90deg, transparent 0, #050510 var(--background) 100%)
+}
+
+.defi .banner {
+    background: linear-gradient(90deg, rgba(22, 22, 52, .216), rgba(219, 219, 241, .119) 50.41%, rgba(22, 22, 52, .024))
+}
+
+.defi .banner p {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: .3rem;
+    font-family: var(--font-neuepower)
+}
+
+.defi .banner-border {
+    background: linear-gradient(90.76deg, hsla(0, 0%, 100%, 0) -.49%, hsla(0, 0%, 100%, .978) 39.37%, hsla(0, 0%, 100%, 0) 106.2%);
+    height: 1px
+}
+
+.defi .subtitle {
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, .08), hsla(0, 0%, 60%, .08));
+    border-radius: 200px;
+    border: 1px solid hsla(0, 0%, 100%, .45);
+    padding: 12px 40px
+}
+
+.defi .step {
+    border-radius: 0;
+    background: #ffffff07;
+    padding: 20px 16px
+}
+
+.defi .step:hover {
+    background-color: #ffffff1f
+}
+
+.defi .step p {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: -4%
+}
+
+.defi .faqheader {
+    background-color: #050510;
+    border-radius: 0
+}
+
+.defi .ball {
+    border-radius: 0;
+    background: transparent;
+    padding: 2px;
+    border: 1px solid #3e5934;
+    height: auto;
+    width: auto;
+    left: calc(50% - 9px)
+}
+
+.defi .ball-inner {
+    height: 13px;
+    width: 13px;
+    background: #3e5934
+}
+
+.defi .glow {
+    background: radial-gradient(42.52% 42.52% at 50% 26.25%, #3e593498 0, transparent 100%);
+    opacity: 1
+}
+
+.defi .button-container {
+    border-image-source: linear-gradient(90deg, #3d5833, #85bf70 67.5%, #fff)
+}
+
+.defi .button-container:hover {
+    box-shadow: 0 4px 75px 0 #3d58333d
+}
+
+.defi button {
+    background: linear-gradient(92.15deg, #3d5833 2.09%, #85bf70 86.55%)
+}
+
+.defi button.alt {
+    background: linear-gradient(90deg, #3d583325, #85bf702a 67.5%, #ffffff2a);
+    box-shadow: 0 4px 50px 0 #3d58333d;
+    color: #fff
+}
+
+@media screen and (min-width:1024px) {
+    .defi h2.special {
+        font-size: 110px;
+        line-height: 115px
+    }
+    .defi h2 {
+        font-size: 64px;
+        line-height: 73px
+    }
+    .defi h3 {
+        font-size: 33px;
+        line-height: 36px
+    }
+    .defi h4 {
+        font-size: 38px;
+        line-height: 33px
+    }
+    .defi p {
+        font-size: 28px;
+        line-height: 36px
+    }
+    .defi .banner p {
+        font-size: 20px;
+        line-height: 36px
+    }
+}
