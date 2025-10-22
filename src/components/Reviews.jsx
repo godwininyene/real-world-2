@@ -2,6 +2,12 @@ import React, { useRef, useState } from 'react';
 import { modifyStreamUrl, playVideo } from '../utils/streamUrlUtils';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import flagUSA from '../assets/images/flag_usa.png';
+import flagCanada from '../assets/images/flag_canada.png';
+import buttonImage from '../assets/images/button.png';
+import methodsIcon from '../assets/images/methods.svg';
+
 const Reviews = () => {
   const video1Url = modifyStreamUrl(
     'https://iframe.cloudflarestream.com/45e03b48ec5dc2caf27e99193761f26f'
@@ -125,8 +131,8 @@ const Reviews = () => {
                     <div className="flex items-center gap-2">
                       <h2 className="text-center switzer">Luke - <span className="font-thin">19</span></h2>
                       <img alt="Flag" loading="lazy" width="30" height="30" decoding="async"
-                        srcSet="/_next/image/flag_usa.png 1x, /_next/image/flag_usa.png 2x"
-                        src="/_next/image/flag_usa.png" style={{ color: 'transparent' }} />
+                        srcSet={`${flagUSA} 1x, ${flagUSA} 2x`}
+                        src={flagUSA} style={{ color: 'transparent' }} />
                     </div>
                     <div className="relative flex items-start mt-3">
                       <div className="text-[#ffcf23] !text-[16px] absolute top-0 left-0 font-bold">$</div>
@@ -187,8 +193,8 @@ const Reviews = () => {
                   <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                     <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                       className="w-[340px] h-[auto]"
-                      srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                      src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                      srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                      src={buttonImage} style={{ color: 'transparent' }} />
                     <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                       style={{ willChange: 'height, width, top, left' }}></div>
                   </div>
@@ -196,7 +202,7 @@ const Reviews = () => {
               </div>
               <div className="flex flex-col lg:flex-row items-center gap-2 justify-center px-4">
                 <img alt="Access 12+" loading="lazy" width="22" height="22" decoding="async"
-                  src="/methods.svg" style={{ color: 'transparent' }} />
+                  src={methodsIcon} style={{ color: 'transparent' }} />
                 <p className="xsmall">
                   <span className="text-white font-extrabold text-lg switzer">Access 12+</span> wealth creation methods
                 </p>
@@ -246,8 +252,8 @@ const Reviews = () => {
                   <div className="flex items-center gap-2 lg:mb-0">
                     <h2 className="text-center">Cyber Twins - <span className="font-thin">24</span></h2>
                     <img alt="Flag" loading="lazy" width="25" height="25" decoding="async"
-                      srcSet="/_next/image/flag_canada.png 1x, /_next/image/flag_canada.png 2x"
-                      src="/_next/image/flag_canada.png" style={{ color: 'transparent' }} />
+                      srcSet={`${flagCanada} 1x, ${flagCanada} 2x`}
+                      src={flagCanada} style={{ color: 'transparent' }} />
                   </div>
                   <div className="relative flex items-center">
                     <div className="text-[#ffcf23] !text-[16px] absolute top-0 left-0 font-bold">$</div>
@@ -293,8 +299,8 @@ const Reviews = () => {
                   <div className="flex items-center gap-2 lg:mb-0">
                     <h2 className="text-center">Napier - <span className="font-thin">16</span></h2>
                     <img alt="Flag" loading="lazy" width="25" height="25" decoding="async"
-                      srcSet="/_next/image/flag_usa.png 1x, /_next/image/flag_usa.png 2x"
-                      src="/_next/image/flag_usa.png" style={{ color: 'transparent' }} />
+                      srcSet={`${flagUSA} 1x, ${flagUSA} 2x`}
+                      src={flagUSA} style={{ color: 'transparent' }} />
                   </div>
                   <div className="relative flex items-center">
                     <div className="text-[#ffcf23] !text-[16px] absolute top-0 left-0 font-bold">$</div>

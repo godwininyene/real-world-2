@@ -2,6 +2,12 @@ import React, { useRef, useState } from 'react';
 import { modifyStreamUrl, playVideo } from '../utils/streamUrlUtils';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import heroBg from '../assets/images/hero_bg.png';
+import buttonBad from '../assets/images/button_bad.png';
+import vsImage from '../assets/images/vs.png';
+import buttonImage from '../assets/images/button.png';
+
 const TwoPaths = () => {
   const videoUrl = modifyStreamUrl(
     'https://iframe.cloudflarestream.com/ded5df3a439e7f8419ccbd653cffae1b'
@@ -20,8 +26,8 @@ const TwoPaths = () => {
       <div className="lg:block w-full absolute top-0 left-0 z-0 max-h-[1020px]">
         <img alt="Background C" loading="lazy" width="1728" height="1669" decoding="async"
           className="w-full lg:w-full h-[800px] lg:h-auto mx-auto"
-          srcSet="/_next/image/hero_bg.png 1x, /_next/image/hero_bg.png 2x"
-          src="/_next/image/hero_bg.png" style={{ color: 'transparent' }} />
+          srcSet={`${heroBg} 1x, ${heroBg} 2x`}
+          src={heroBg} style={{ color: 'transparent' }} />
         <div className="top-fade-b pointer-events-none"></div>
         <div className="left-fade-b pointer-events-none"></div>
         <div className="right-fade-b pointer-events-none"></div>
@@ -112,15 +118,15 @@ const TwoPaths = () => {
                 <div className="button-container bad duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button_bad.png 1x, /_next/image/button_bad.png 2x"
-                    src="/_next/image/button_bad.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonBad} 1x, ${buttonBad} 2x`}
+                    src={buttonBad} style={{ color: 'transparent' }} />
                 </div>
               </Link>
             </div>
             <div className="hidden lg:block">
               <img alt="Versus" loading="lazy" width="82" height="82" decoding="async"
-                srcSet="/_next/image/vs.png 1x, /_next/image/vs.png 2x"
-                src="/_next/image/vs.png" style={{ color: 'transparent' }} />
+                srcSet={`${vsImage} 1x, ${vsImage} 2x`}
+                src={vsImage} style={{ color: 'transparent' }} />
             </div>
             <div className="path">
               <div className="subtitle uppercase gradient-text-2 switzer">pay</div>
@@ -134,8 +140,8 @@ const TwoPaths = () => {
                 <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                    src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                    src={buttonImage} style={{ color: 'transparent' }} />
                   <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                     style={{ willChange: 'height, width, top, left' }}></div>
                 </div>

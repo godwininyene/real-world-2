@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import feature1 from '../assets/images/feature1_2.png';
+import feature2 from '../assets/images/feature2_2.png';
+import feature3 from '../assets/images/feature3_2.png';
+import heroBg from '../assets/images/hero_bg.png';
+import exclusiveLock from '../assets/images/exclusive_lock.svg';
+import checkIcon from '../assets/images/check.svg';
+import buttonImage from '../assets/images/button.png';
+
 const ExclusiveFeatures = () => {
   const features = [
     {
-      image: '/_next/image/feature1_2.png',
+      image: feature1,
       title: 'step-by-step learning',
       items: [
         { text: 'Easy to follow program for financial success', bold: true },
@@ -13,7 +22,7 @@ const ExclusiveFeatures = () => {
       ]
     },
     {
-      image: '/_next/image/feature2_2.png',
+      image: feature2,
       title: 'daily live sessions',
       items: [
         { text: 'Daily live sessions with millionaire coaches', bold: true },
@@ -22,7 +31,7 @@ const ExclusiveFeatures = () => {
       ]
     },
     {
-      image: '/_next/image/feature3_2.png',
+      image: feature3,
       title: 'an exclusive community',
       items: [
         { text: 'Mentors are hyper-successful experts in their field', boldPart: 'hyper-successful' },
@@ -46,7 +55,7 @@ const ExclusiveFeatures = () => {
         {feature.items.map((item, itemIndex) => (
           <div key={itemIndex} className="description group-hover:bg-[#ffffff29] transition-all duration-500">
             <img alt="Checkmark" loading="lazy" width="32" height="32" decoding="async"
-              className="pr-2" src="/check.svg" style={{ color: 'transparent' }} />
+              className="pr-2" src={checkIcon} style={{ color: 'transparent' }} />
             <span className="switzer">
               {item.bold ? (
                 <span className="text-white font-bold">{item.text}</span>
@@ -73,8 +82,8 @@ const ExclusiveFeatures = () => {
           <div className="absolute top-0 left-0 z-0 pointer-events-none w-full flex justify-center">
             <img alt="Background C" loading="lazy" width="1728" height="1669" decoding="async"
               className="w-full lg:w-full h-[800px] lg:h-auto mx-auto"
-              srcSet="/_next/image/hero_bg.png 1x, /_next/image/hero_bg.png 2x"
-              src="/_next/image/hero_bg.png" style={{ color: 'transparent' }} />
+              srcSet={`${heroBg} 1x, ${heroBg} 2x`}
+              src={heroBg} style={{ color: 'transparent' }} />
             <div className="top-fade-b pointer-events-none"></div>
             <div className="bottom-fade-b pointer-events-none"></div>
             <div className="right-fade-b pointer-events-none"></div>
@@ -83,7 +92,7 @@ const ExclusiveFeatures = () => {
           <h3 className="uppercase text-center text-[16px] mb-2 hidden lg:block relative z-10">EXCLUSIVE FEATURES</h3>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-4 relative z-10">
             <img alt="Exclusive Features" loading="lazy" width="40" height="52" decoding="async"
-              className="h-[30px] lg:h-[52px]" src="/exclusive_lock.svg" style={{ color: 'transparent' }} />
+              className="h-[30px] lg:h-[52px]" src={exclusiveLock} style={{ color: 'transparent' }} />
             <h3 className="uppercase text-center my-2 lg:hidden">EXCLUSIVE FEATURES</h3>
             <h2 className="capitalize switzer tracking-[-1px] lg:tracking-[-3px] text-center gradient-text texture-text max-w-[280px] lg:max-w-[740px] mx-auto lg:mx-0">
               you will get access to
@@ -100,8 +109,8 @@ const ExclusiveFeatures = () => {
             <div className="button-container duration-500 transition-all w-full group overflow-hidden">
               <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                 className="w-[340px] h-[auto]"
-                srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                src={buttonImage} style={{ color: 'transparent' }} />
               <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                 style={{ willChange: 'height, width, top, left' }}></div>
             </div>

@@ -1,4 +1,16 @@
 import React, { useState, useEffect } from "react";
+import Header from "../components/checkout/Header";
+import BillingToggler from "../components/checkout/BillingToggler";
+import Students from "../components/checkout/Students";
+import CardPayment from "../components/checkout/CardPayment";
+import CryptoPayment from "../components/checkout/CryptoPayment";
+
+// Import images from assets
+// import v2Bg1 from "./../assets/images/v2_bg1.bbc102ec.png";
+// import v2BgOverlay from "./../assets/images/v2_bg_overlay.559958a0.svg";
+import upgradeIcon from "./../assets/images/upgrade.53187437.svg";
+import checkIcon from "./../assets/images/check.svg";
+import payWithCrypto from "./../assets/images/pay-with-crypto.png";
 
 const Checkout = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -47,13 +59,13 @@ const Checkout = () => {
   // Instead, add the CSS to your checkout.css file
 
   return (
-    <div className="bg-[#060E15] min-h-screen text-white checkout-page">
+    <div className="bg-[#060E15] min-h-screen text-white checkout-page w-full overflow-hidden">
       {/* Background */}
       <div className="fixed inset-0 z-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0D1A25] to-[#060E15]" />
       </div>
       <div style={{ position: "absolute", zIndex: -1 }}>
-        <img
+        {/* <img
           alt="Background Texture"
           loading="lazy"
           width="1920"
@@ -61,8 +73,8 @@ const Checkout = () => {
           decoding="async"
           className="w-full h-[100%] absolute top-0 left-0 z-0 pointer-events-none opacity-5"
           style={{ color: "transparent" }}
-          srcSet="/checkout/_next/v2_bg1.bbc102ec.png 1x, /checkout/_next/v2_bg1.bbc102ec.pn 2x"
-          src="/checkout/_next/v2_bg1.bbc102ec.pn"
+          srcSet={`${v2Bg1} 1x, ${v2Bg1} 2x`}
+          src={v2Bg1}
         />
         <img
           alt="Background Overlay"
@@ -72,8 +84,8 @@ const Checkout = () => {
           decoding="async"
           className="w-full lg:w-full h-[800px] lg:h-auto mx-auto"
           style={{ color: "transparent" }}
-          src="/checkout/_next/static/media/v2_bg_overlay.559958a0.svg"
-        />
+          src={v2BgOverlay}
+        /> */}
       </div>
 
       <article
@@ -93,7 +105,7 @@ const Checkout = () => {
               width="29"
               height="26"
               decoding="async"
-              src="/checkout/_next/static/media/upgrade.53187437.svg"
+              src={upgradeIcon}
               style={{ color: "transparent" }}
             />
             <p className="uppercase text-sm font-bold text-white lg:text-2xl">
@@ -106,60 +118,18 @@ const Checkout = () => {
       {/* Main Content */}
       <main className="relative z-10 max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
-        <header className="text-center mb-12 mt-12">
-          <div className="glow" />
-          <img
-            src="/checkout/_next/static/media/trw-256.c3bb2895.png"
-            alt="TRW Logo"
-            className="w-16 h-16 mx-auto mb-6"
-          />
-          <h1 className="text-4xl lg:text-6xl font-bold texture-text mb-4">
-            CHOOSE YOUR PATH TO SUCCESS
-          </h1>
-          <p className="text-lg lg:text-xl text-gray-400">
-            Join thousands crushing their competition and building enemies
-          </p>
-        </header>
-
+        <Header />
         {/* Billing Toggle */}
-        <div className="flex justify-center items-center gap-4 mb-8">
-          <span
-            className={`text-xl ${!isYearly
-              ? "text-white font-bold"
-              : "text-gray-400"}`}
-          >
-            Monthly
-          </span>
-          <div
-            className={`w-20 h-10 rounded-full border border-[#FFFFFF26] p-1 cursor-pointer ${isYearly
-              ? "toggle-bg-yearly"
-              : "toggle-bg-monthly"}`}
-            onClick={toggleBilling}
-          >
-            <div
-              className={`w-8 h-8 rounded-full border border-[#58636D69] transition-all duration-300 ${isYearly
-                ? "toggle-knob-yearly transform translate-x-10"
-                : "toggle-knob-monthly transform translate-x-0"}`}
-            />
-          </div>
-          <span
-            className={`text-xl ${isYearly
-              ? "text-white font-bold"
-              : "text-gray-400"}`}
-          >
-            Yearly
-          </span>
-        </div>
+        <BillingToggler isYearly={isYearly} toggleBilling={toggleBilling} />
+
 
         {/* Savings Banner */}
         <div
-          className={`flex justify-center mb-12 transition-all duration-300 ${isYearly
-            ? ""
-            : "hidden"}`}
+          className={`flex justify-center mb-12 transition-all duration-300`}
         >
-          <div className="toggle-bg-monthly border border-[#FFFFFF26] rounded-full px-8 py-3 flex items-center gap-4">
-            <span>✨</span>
-            <span className="text-lg font-semibold">
+          <div className="toggle-bg-monthly border border-[#FFFFFF26] rounded-full px-8 py-3 my-4 flex items-center gap-4">
+            <span className="text-2xl">✨</span>
+            <span className="text-white texture-text text-[14px] lg:text-[25px] font-semibold">
               SAVE UP TO <span className="text-[#ECC870]">17%</span> WITH YEARLY
             </span>
           </div>
@@ -172,135 +142,254 @@ const Checkout = () => {
         >
           {/* Earn Plan - Monthly */}
           <div
-            className={`pricing-plan monthly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border border-red-600 rounded-lg p-6 relative opacity-50 ${isYearly
+            className={`pricing-plan monthly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border  rounded-lg p-6 relative  ${isYearly
               ? "hidden"
               : ""}`}
+            style={{ borderColor: 'rgb(151, 0, 8)' }}
           >
-            <div className="absolute top-4 right-0 bg-red-500 text-white px-4 py-1 rounded-l-full text-sm">
+
+            <div className="absolute top-4 right-0 pl-3 pr-6 p-2 bg-red-500 rounded-l-full">
               SOLD OUT
             </div>
             <div className="text-center">
-              <h3 className="text-xl text-gray-400 uppercase font-bold mb-4">
+              <h3 className="text-[22px] text-gray-400 uppercase font-bold my-4">
                 Earn
               </h3>
-              <div className="text-2xl font-bold mb-6">
-                <span className="text-lg">$</span>49<span className="text-lg text-gray-400">
+              <div className="text-[28px] font-bold mb-6 opacity-60">
+                <span className="text-[22px]">$</span>
+                49
+                <span className="text-[22px] text-gray-400 opacity-70">
                   /month
                 </span>
               </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                ✓ Choose 1 Business Model
+            <ul className="space-y-3 opacity-50">
+              <li className="flex items-start md:items-center  text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Choose 1 Business Model
               </li>
-              <li className="flex items-center gap-2">
-                ✓ Daily Live Broadcasts
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Daily Live Broadcasts
               </li>
-              <li className="flex items-center gap-2">
-                ✓ Real-Time Course Updates
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />Real-Time Course Updates
               </li>
-              <li className="flex items-center gap-2">✓ 3 Connected Devices</li>
-              <li className="flex items-center gap-2">✓ Community Access</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />3 Connected Devices</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Community Access</li>
             </ul>
           </div>
 
           {/* Earn Plan - Yearly */}
           <div
-            className={`pricing-plan yearly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border border-red-600 rounded-lg p-6 relative opacity-50 ${!isYearly
+            className={`pricing-plan yearly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border rounded-lg p-6 relative ${!isYearly
               ? "hidden"
               : ""}`}
+            style={{ borderColor: 'rgb(151, 0, 8)' }}
           >
-            <div className="absolute top-4 right-0 bg-red-500 text-white px-4 py-1 rounded-l-full text-sm">
+
+            <div className="absolute top-4 right-0 pl-3 pr-6 p-2 bg-red-500 rounded-l-full">
               SOLD OUT
             </div>
-            <div className="flex absolute top-0 left-0 w-full justify-center">
-              <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
+
+            <div className="flex absolute  -top-4 left-0 w-full justify-center">
+              <div className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
                 Save $96
               </div>
             </div>
             <div className="text-center">
-              <h3 className="text-xl text-gray-400 uppercase font-bold mb-4">
+              <h3 className="text-[22px] text-gray-400 uppercase font-bold my-4">
                 Earn
               </h3>
-              <div className="text-2xl font-bold mb-6">
-                <span className="text-lg">$</span>492<span className="text-lg text-gray-400">/year</span>
+              <div className="text-[28px] font-bold mb-6 opacity-60">
+                <span className="text-[22px]">$</span>
+                492
+                <span className="text-[22px] text-gray-400 opacity-70">
+                  /myear
+                </span>
               </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                ✓ Choose 1 Business Model
+
+            <ul className="space-y-3 opacity-50">
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Choose 1 Business Model
               </li>
-              <li className="flex items-center gap-2">
-                ✓ Daily Live Broadcasts
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Daily Live Broadcasts
               </li>
-              <li className="flex items-center gap-2">
-                ✓ Real-Time Course Updates
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Real-Time Course Updates
               </li>
-              <li className="flex items-center gap-2">✓ 3 Connected Devices</li>
-              <li className="flex items-center gap-2">✓ Community Access</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> 3 Connected Devices</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />Community Access</li>
             </ul>
           </div>
 
           {/* Prosper Plan - Monthly */}
           <div
-            className={`pricing-plan monthly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border border-red-600 rounded-lg p-6 relative opacity-50 ${isYearly
+            className={`pricing-plan monthly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border  rounded-lg p-6 relative  ${isYearly
               ? "hidden"
               : ""}`}
+            style={{ borderColor: 'rgb(151, 0, 8)' }}
           >
-            <div className="absolute top-4 right-0 bg-red-500 text-white px-4 py-1 rounded-l-full text-sm">
+
+            <div className="absolute top-4 right-0 pl-3 pr-6 p-2 bg-red-500 rounded-l-full">
               SOLD OUT
             </div>
             <div className="text-center">
-              <h3 className="text-xl text-gray-400 uppercase font-bold mb-4">
+              <h3 className="text-[22px] text-gray-400 uppercase font-bold my-4">
                 Prosper
               </h3>
-              <div className="text-2xl font-bold mb-6">
-                <span className="text-lg">$</span>69<span className="text-lg text-gray-400">
+              <div className="text-[28px] font-bold mb-6 opacity-60">
+                <span className="text-[22px]">$</span>
+                69
+                <span className="text-[22px] text-gray-400 opacity-70">
                   /month
                 </span>
               </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">✓ Everything in Earn</li>
-              <li className="flex items-center gap-2">
-                ✓ 1 Extra Business Model
+            <ul className="space-y-3 opacity-50">
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Everything in Earn</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> 1 Extra Business Model
               </li>
-              <li className="flex items-center gap-2">✓ Priority Support</li>
-              <li className="flex items-center gap-2">✓ 5 Connected Devices</li>
-              <li className="flex items-center gap-2">✓ Exclusive Workshops</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Priority Support</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> 5 Connected Devices</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Exclusive Workshops</li>
             </ul>
           </div>
 
           {/* Prosper Plan - Yearly */}
           <div
-            className={`pricing-plan yearly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border border-red-600 rounded-lg p-6 relative opacity-50 ${!isYearly
+            className={`pricing-plan yearly bg-gradient-to-br from-gray-600/25 to-gray-800/25 border  rounded-lg p-6 relative ${!isYearly
               ? "hidden"
               : ""}`}
+            style={{ borderColor: 'rgb(151, 0, 8)' }}
           >
-            <div className="absolute top-4 right-0 bg-red-500 text-white px-4 py-1 rounded-l-full text-sm">
+
+            <div className="absolute top-4 right-0 pl-3 pr-6 p-2 bg-red-500 rounded-l-full">
               SOLD OUT
             </div>
-            <div className="flex absolute top-0 left-0 w-full justify-center">
-              <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
+            <div className="flex absolute -top-4 left-0 w-full justify-center">
+              <div className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
                 Save $132
               </div>
             </div>
+
             <div className="text-center">
-              <h3 className="text-xl text-gray-400 uppercase font-bold mb-4">
+              <h3 className="text-[22px] text-gray-400 uppercase font-bold my-4">
                 Prosper
               </h3>
-              <div className="text-2xl font-bold mb-6">
-                <span className="text-lg">$</span>696<span className="text-lg text-gray-400">/year</span>
+              <div className="text-[28px] font-bold mb-6 opacity-60">
+                <span className="text-[22px]">$</span>
+                696
+                <span className="text-[22px] text-gray-400 opacity-70">
+                  /year
+                </span>
               </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">✓ Everything in Earn</li>
-              <li className="flex items-center gap-2">
-                ✓ 1 Extra Business Model
+            <ul className="space-y-3 opacity-50">
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> Everything in Earn</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                1 Extra Business Model
               </li>
-              <li className="flex items-center gap-2">✓ Priority Support</li>
-              <li className="flex items-center gap-2">✓ 5 Connected Devices</li>
-              <li className="flex items-center gap-2">✓ Exclusive Workshops</li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                Priority Support
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                /> 5 Connected Devices
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />Exclusive Workshops</li>
             </ul>
           </div>
 
@@ -321,21 +410,50 @@ const Checkout = () => {
               </div>
             </div>
             <ul className="space-y-3 mb-6">
-              <li className="flex items-center gap-2">
-                ✓ Everything in Prosper
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                Everything in Prosper
               </li>
-              <li className="flex items-center gap-2">
-                ✓ 9+ Extra Business Models
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                9+ Extra Business Models
               </li>
-              <li className="flex items-center gap-2">✓ VIP Account Ranking</li>
-              <li className="flex items-center gap-2">✓ 7 Connected Devices</li>
-              <li className="flex items-center gap-2">
-                ✓ Early Access to New Content
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                VIP Account Ranking
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                7 Connected Devices
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                Early Access to New Content
               </li>
             </ul>
             <button
               onClick={() => handlePaymentMethodSelect("card")}
-              className="payment-btn card w-full bg-gradient-to-r from-[#1E2E3C] to-[#0E1923] border border-gray-700 rounded-lg py-3 px-4 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="text-[16px] py-2 px-4 text-white/70 hover:scale-[1.05] flex flex-grow items-center justify-between border-[1px] font-bold border-[#243749] hover:text-white rounded-lg translate-y-0 hover:translate-y-[-1px] cursor-pointer group w-full transition-all duration-500"
             >
               <span>
                 <svg
@@ -364,8 +482,9 @@ const Checkout = () => {
               ? "hidden"
               : ""}`}
           >
-            <div className="flex absolute top-0 left-0 w-full justify-center">
-              <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
+           
+            <div className="flex absolute -top-4 left-0 w-full justify-center">
+              <div className="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold uppercase -translate-y-1/2">
                 Save $192
               </div>
             </div>
@@ -378,21 +497,50 @@ const Checkout = () => {
               </div>
             </div>
             <ul className="space-y-3 mb-6">
-              <li className="flex items-center gap-2">
-                ✓ Everything in Prosper
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                Everything in Prosper
               </li>
-              <li className="flex items-center gap-2">
-                ✓ 9+ Extra Business Models
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                9+ Extra Business Models
               </li>
-              <li className="flex items-center gap-2">✓ VIP Account Ranking</li>
-              <li className="flex items-center gap-2">✓ 7 Connected Devices</li>
-              <li className="flex items-center gap-2">
-                ✓ Early Access to New Content
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                VIP Account Ranking
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                7 Connected Devices
+              </li>
+              <li className="flex items-start md:items-center text-white text-[14px] lg:text-[16px]">
+                <img alt="check icon"
+                  loading="lazy" width="21" height="17" decoding="async" data-nimg="1"
+                  className="mr-2 w-[12px] md:w-[15px] translate-y-[5px] md:translate-y-0"
+                  src={checkIcon} style={{ color: 'transparent' }}
+                />
+                Early Access to New Content
               </li>
             </ul>
             <button
               onClick={() => handlePaymentMethodSelect("crypto")}
-              className="payment-btn crypto w-full bg-gradient-to-r from-[#1E2E3C] to-[#0E1923] border border-gray-700 rounded-lg py-3 px-4 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="payment-btn crypto w-full bg-gradient-to-r from-[#1E2E3C] to-[#0E1923] border border-gray-700 hover:scale-[1.05] cursor-pointer rounded-lg py-2 px-4 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
             >
               <span>
                 <img
@@ -402,8 +550,8 @@ const Checkout = () => {
                   height="110"
                   decoding="async"
                   className="w-8 h-8 group-hover:text-white transition-all duration-500 text-white/70"
-                  srcSet="/checkout/_next/pay-with-crypto.png 1x, /checkout/_next/pay-with-crypto.png 2x"
-                  src="/checkout/_next/pay-with-crypto.png"
+                  srcSet={`${payWithCrypto} 1x, ${payWithCrypto} 2x`}
+                  src={payWithCrypto}
                   style={{ color: "transparent" }}
                 />
               </span>
@@ -413,370 +561,32 @@ const Checkout = () => {
         </div>
 
         {/* Students Counter */}
-        <div className="flex justify-center items-center gap-4 mb-12">
-          <span>👥</span>
-          <p className="text-lg">
-            Join <span className="text-[#ECC870]">155,000+</span> members
-            already transforming their lives
-          </p>
-        </div>
+        <Students />
+        <p className="mt-4 pb-4">
+          *All Prices Are Presented In USD.
+        </p>
+
 
         {/* Payment Methods Section */}
         <div
           id="payment-section"
-          className={currentPaymentMethod ? "" : "hidden"}
+          className={`mt-4 ${currentPaymentMethod ? "" : "hidden"}`}
         >
           {/* Card Payment Form */}
-          {currentPaymentMethod === "card" &&
-            <div id="card-payment" className="bg-[#0D1A25] rounded-lg p-6 mb-8">
-              <h3 className="text-2xl font-bold texture-text mb-6">
-                CARD INFORMATION
-              </h3>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium mb-2">
-                    Card Number
-                  </label>
-                  <input
-                    type="text"
-                    name="cardNumber"
-                    className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-12 py-3"
-                    placeholder="xxxx xxxx xxxx xxxx"
-                  />
-                  <span className="absolute left-4 bottom-3">💳</span>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Expiry Date
-                    </label>
-                    <input
-                      type="text"
-                      name="expiryDate"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="MM/YY"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      CVC
-                    </label>
-                    <input
-                      type="text"
-                      name="cvc"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="xxx"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
-                  Billing Address
-                </label>
-                <input
-                  type="text"
-                  name="billingAddress"
-                  className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                  placeholder="Billing Address"
-                />
-              </div>
-
-              {/* User Information */}
-              <div className="mb-6">
-                <h4 className="text-2xl font-bold texture-text mb-4">
-                  YOUR INFORMATION
-                </h4>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="Full Name"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Total and Agreement */}
-              <div className="bg-[#0D1A25] rounded-lg p-6 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-semibold">Total Due:</span>
-                  <span className="text-2xl font-bold text-[#ECC870] monthly-total">
-                    {isYearly ? "$996 / year" : "$99 / month"}
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 mb-6">
-                <input
-                  type="checkbox"
-                  name="termsAgreement"
-                  className="w-5 h-5"
-                />
-                <span className="text-gray-400">
-                  I accept the{" "}
-                  <a href="#" className="underline">
-                    Terms and Conditions
-                  </a>{" "}
-                  and
-                  <a href="#" className="underline">
-                    Privacy Policy
-                  </a>, and agree to pay{" "}
-                  {isYearly
-                    ? "$996 USD every year"
-                    : "$99 USD every month"}{" "}
-                  until I cancel.
-                </span>
-              </div>
-
-              <button className="w-full bg-gradient-to-r from-white to-[#ECC870] text-[#060E15] font-bold py-4 rounded-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                <span>💳</span>
-                <span className="text-xl">Enter The Real World</span>
-              </button>
-            </div>}
+          {(currentPaymentMethod === "card" || currentPaymentMethod === 'crypto') &&
+            <CardPayment isYearly={isYearly} />
+          }
 
           {/* Crypto Payment Form */}
-          {currentPaymentMethod === "crypto" &&
-            <div
-              id="crypto-payment"
-              className="bg-[#0D1A25] rounded-lg p-6 mb-8"
-            >
-              {/* Network Selection */}
-              <div className="mb-6">
-                <h4 className="text-2xl font-bold texture-text mb-4">
-                  Select Network & Token
-                </h4>
-                <div className="flex border border-gray-600 rounded-lg overflow-hidden">
-                  <button
-                    onClick={() => handleNetworkSelect("ethereum")}
-                    className={`network-btn flex-1 ${currentNetwork ===
-                    "ethereum"
-                      ? "bg-[#3A4D5E]"
-                      : "bg-[#0D1A25]"} py-4 flex items-center justify-center gap-2`}
-                  >
-                    <span>⧫</span>
-                    <span
-                      className={
-                        currentNetwork === "ethereum"
-                          ? "font-bold text-white"
-                          : ""
-                      }
-                    >
-                      Ethereum
-                    </span>
-                  </button>
-                  <button
-                    onClick={() => handleNetworkSelect("solana")}
-                    className={`network-btn flex-1 ${currentNetwork === "solana"
-                      ? "bg-[#3A4D5E]"
-                      : "bg-[#0D1A25]"} py-4 flex items-center justify-center gap-2`}
-                  >
-                    <span>◎</span>
-                    <span
-                      className={
-                        currentNetwork === "solana"
-                          ? "font-bold text-white"
-                          : ""
-                      }
-                    >
-                      Solana
-                    </span>
-                  </button>
-                </div>
-              </div>
+          {/* {currentPaymentMethod === "crypto" &&
+            <CryptoPayment
+              handleNetworkSelect={handleNetworkSelect}
+              currentNetwork={currentNetwork}
+              currentToken={currentToken}
+            />
 
-              {/* Token Selection - Ethereum */}
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6 ${currentNetwork !==
-                "ethereum"
-                  ? "hidden"
-                  : ""}`}
-              >
-                <button
-                  onClick={() => handleTokenSelect("usdt")}
-                  className={`token-btn ${currentToken === "usdt"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>💰</span>
-                  <span
-                    className={
-                      currentToken === "usdt" ? "font-bold text-white" : ""
-                    }
-                  >
-                    USDT<span className="text-sm">(ERC-20)</span>
-                  </span>
-                </button>
-                <button
-                  onClick={() => handleTokenSelect("usdc")}
-                  className={`token-btn ${currentToken === "usdc"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>💰</span>
-                  <span
-                    className={
-                      currentToken === "usdc" ? "font-bold text-white" : ""
-                    }
-                  >
-                    USDC<span className="text-sm">(ERC-20)</span>
-                  </span>
-                </button>
-                <button
-                  onClick={() => handleTokenSelect("native")}
-                  className={`token-btn ${currentToken === "native"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>⧫</span>
-                  <span
-                    className={
-                      currentToken === "native" ? "font-bold text-white" : ""
-                    }
-                  >
-                    ETH<span className="text-sm">(ERC-20)</span>
-                  </span>
-                </button>
-              </div>
-
-              {/* Token Selection - Solana */}
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6 ${currentNetwork !==
-                "solana"
-                  ? "hidden"
-                  : ""}`}
-              >
-                <button
-                  onClick={() => handleTokenSelect("usdt")}
-                  className={`token-btn ${currentToken === "usdt"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>💰</span>
-                  <span
-                    className={
-                      currentToken === "usdt" ? "font-bold text-white" : ""
-                    }
-                  >
-                    USDT<span className="text-sm">(Solana)</span>
-                  </span>
-                </button>
-                <button
-                  onClick={() => handleTokenSelect("usdc")}
-                  className={`token-btn ${currentToken === "usdc"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>💰</span>
-                  <span
-                    className={
-                      currentToken === "usdc" ? "font-bold text-white" : ""
-                    }
-                  >
-                    USDC<span className="text-sm">(Solana)</span>
-                  </span>
-                </button>
-                <button
-                  onClick={() => handleTokenSelect("native")}
-                  className={`token-btn ${currentToken === "native"
-                    ? "bg-[#3A4D5E]"
-                    : "bg-[#0D1A25]"} border border-gray-600 rounded-lg p-4 flex items-center justify-center gap-2`}
-                >
-                  <span>◎</span>
-                  <span
-                    className={
-                      currentToken === "native" ? "font-bold text-white" : ""
-                    }
-                  >
-                    SOL<span className="text-sm">(Solana)</span>
-                  </span>
-                </button>
-              </div>
-
-              {/* User Information */}
-              <div className="mb-6">
-                <h4 className="text-2xl font-bold texture-text mb-4">
-                  YOUR INFORMATION
-                </h4>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="cryptoEmail"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      name="cryptoFullName"
-                      className="w-full bg-[#0D1A25] border border-gray-600 rounded-lg px-4 py-3"
-                      placeholder="Full Name"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Total and Agreement */}
-              <div className="bg-[#0D1A25] rounded-lg p-6 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-semibold">Total Due:</span>
-                  <span className="text-2xl font-bold text-[#ECC870]">
-                    $996 / year
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 mb-6">
-                <input type="checkbox" name="cryptoTerms" className="w-5 h-5" />
-                <span className="text-gray-400">
-                  I accept the{" "}
-                  <a href="#" className="underline">
-                    Terms and Conditions
-                  </a>{" "}
-                  and
-                  <a href="#" className="underline">
-                    Privacy Policy
-                  </a>
-                </span>
-              </div>
-
-              <button className="w-full bg-gradient-to-r from-white to-[#ECC870] text-[#060E15] font-bold py-4 rounded-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                <span>💰</span>
-                <span className="text-xl">Join with 996.00 USDT (ERC-20)</span>
-              </button>
-            </div>}
+          } */}
         </div>
-
-        {/* Footer */}
-        <footer className="text-center text-gray-500 text-sm mt-8">
-          <p>Copyright © 2025 The Real World</p>
-        </footer>
       </main>
     </div>
   );

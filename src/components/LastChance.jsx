@@ -1,6 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import last1 from '../assets/images/last1.png';
+import last2 from '../assets/images/last2.png';
+import last3 from '../assets/images/last3.png';
+import last1Icon from '../assets/images/last1_icon.svg';
+import last2Icon from '../assets/images/last2_icon.svg';
+import last3Icon from '../assets/images/last3_icon.svg';
+import buttonImage from '../assets/images/button.png';
+
 const LastChance = () => {
   return (
     <div className="mt-20">
@@ -17,8 +26,8 @@ const LastChance = () => {
                 <div className="lg:block w-full absolute top-0 left-0 z-0 pointer-events-none overflow-hidden h-[80%] rounded-t-[25px]">
                   <img alt="You're running out of time" loading="lazy" width="936" height="1492" decoding="async"
                     className="w-full object-cover h-full"
-                    srcSet="/_next/image/last1.png 1x, /_next/image/last1.png 2x"
-                    src="/_next/image/last1.png" style={{ color: 'transparent' }} />
+                    srcSet={`${last1} 1x, ${last1} 2x`}
+                    src={last1} style={{ color: 'transparent' }} />
                   <div className="top-fade-b pointer-events-none"></div>
                   <div className="bottom-fade-b pointer-events-none"></div>
                   <div className="right-fade-b pointer-events-none"></div>
@@ -30,7 +39,7 @@ const LastChance = () => {
                   </div>
                   <figure className="mt-6 lg:mt-[90px]">
                     <img alt="You're running out of time" loading="lazy" width="51" height="51" decoding="async"
-                      className="mx-auto" src="/last1_icon.svg" style={{ color: 'transparent' }} />
+                      className="mx-auto" src={last1Icon} style={{ color: 'transparent' }} />
                   </figure>
                   <div className="title capitalize px-4 switzer">You're running out of time</div>
                   <div className="w-full h-[1px]"
@@ -47,8 +56,8 @@ const LastChance = () => {
                 <div className="lg:block w-full absolute top-0 left-0 z-0 pointer-events-none overflow-hidden h-[80%] rounded-t-[25px]">
                   <img alt="imminent Ai takeover" loading="lazy" width="936" height="1492" decoding="async"
                     className="w-full object-cover h-full"
-                    srcSet="/_next/image/last2.png 1x, /_next/image/last2.png 2x"
-                    src="/_next/image/last2.png" style={{ color: 'transparent' }} />
+                    srcSet={`${last2} 1x, ${last2} 2x`}
+                    src={last2} style={{ color: 'transparent' }} />
                   <div className="top-fade-b pointer-events-none"></div>
                   <div className="bottom-fade-b pointer-events-none"></div>
                   <div className="right-fade-b pointer-events-none"></div>
@@ -60,7 +69,7 @@ const LastChance = () => {
                   </div>
                   <figure className="mt-6 lg:mt-[90px]">
                     <img alt="imminent Ai takeover" loading="lazy" width="51" height="51" decoding="async"
-                      className="mx-auto" src="/last2_icon.svg" style={{ color: 'transparent' }} />
+                      className="mx-auto" src={last2Icon} style={{ color: 'transparent' }} />
                   </figure>
                   <div className="title capitalize px-4 switzer">imminent Ai takeover</div>
                   <div className="w-full h-[1px]"
@@ -77,8 +86,8 @@ const LastChance = () => {
                 <div className="lg:block w-full absolute top-0 left-0 z-0 pointer-events-none overflow-hidden h-[80%] rounded-t-[25px]">
                   <img alt="you need to learn a skill" loading="lazy" width="936" height="1492" decoding="async"
                     className="w-full object-cover h-full"
-                    srcSet="/_next/image/last3.png 1x, /_next/image/last3.png 2x"
-                    src="/_next/image/last3.png" style={{ color: 'transparent' }} />
+                    srcSet={`${last3} 1x, ${last3} 2x`}
+                    src={last3} style={{ color: 'transparent' }} />
                   <div className="top-fade-b pointer-events-none"></div>
                   <div className="bottom-fade-b pointer-events-none"></div>
                   <div className="right-fade-b pointer-events-none"></div>
@@ -90,7 +99,7 @@ const LastChance = () => {
                   </div>
                   <figure className="mt-6 lg:mt-[90px]">
                     <img alt="you need to learn a skill" loading="lazy" width="51" height="51" decoding="async"
-                      className="mx-auto" src="/last3_icon.svg" style={{ color: 'transparent' }} />
+                      className="mx-auto" src={last3Icon} style={{ color: 'transparent' }} />
                   </figure>
                   <div className="title capitalize px-4 switzer">you need to learn a skill</div>
                   <div className="w-full h-[1px]"
@@ -109,8 +118,8 @@ const LastChance = () => {
                 <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                    src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                    src={buttonImage} style={{ color: 'transparent' }} />
                   <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                     style={{ willChange: 'height, width, top, left' }}></div>
                 </div>

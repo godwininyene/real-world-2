@@ -1,8 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import all testimonial images
+import t1 from '../assets/images/t1.png';
+import t2 from '../assets/images/t2.png';
+import t3 from '../assets/images/t3.png';
+import t4 from '../assets/images/t4.png';
+import t5 from '../assets/images/t5.png';
+import t6 from '../assets/images/t6.png';
+import t7 from '../assets/images/t7.png';
+import t8 from '../assets/images/t8.png';
+import t9 from '../assets/images/t9.png';
+import t10 from '../assets/images/t10.png';
+import t11 from '../assets/images/t11.png';
+import t12 from '../assets/images/t12.png';
+import t13 from '../assets/images/t13.png';
+import t14 from '../assets/images/t14.png';
+import t15 from '../assets/images/t15.png';
+import t16 from '../assets/images/t16.png';
+import t17 from '../assets/images/t17.png';
+import t18 from '../assets/images/t18.png';
+import t19 from '../assets/images/t19.png';
+import t20 from '../assets/images/t20.png';
+
+// Import other images
+import winningSwirl from '../assets/images/winning_swirl.png';
+import buttonImage from '../assets/images/button.png';
+import studentsImage from '../assets/images/students.png';
+
 const WinningStudents = () => {
-  const testimonials = Array.from({ length: 20 }, (_, i) => `/t${i + 1}.png`);
+  const testimonials = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20];
 
   const renderTestimonialColumns = (isMobile = false) => {
     if (isMobile) {
@@ -59,8 +86,8 @@ const WinningStudents = () => {
             our students are winning
             <img alt="Winning Circle Swirl" loading="lazy" width="327" height="142" decoding="async"
               className="absolute bottom-[-5px] lg:bottom-[-10px] lg:right-[-60px] w-40 lg:w-auto right-[-15px]"
-              srcSet="/_next/image/winning_swirl.png 1x, /_next/image/winning_swirl.png 2x"
-              src="/_next/image/winning_swirl.png" style={{ color: 'transparent' }} />
+              srcSet={`${winningSwirl} 1x, ${winningSwirl} 2x`}
+              src={winningSwirl} style={{ color: 'transparent' }} />
           </span>
         </h2>
         <div className="relative mt-8 lg:mt-10">
@@ -84,16 +111,16 @@ const WinningStudents = () => {
             <div className="button-container duration-500 transition-all w-full group overflow-hidden">
               <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                 className="w-[340px] h-[auto]"
-                srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                src={buttonImage} style={{ color: 'transparent' }} />
               <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                 style={{ willChange: 'height, width, top, left' }}></div>
             </div>
           </Link>
           <div className="flex flex-row items-center gap-2 justify-center px-4 mt-4">
             <img alt="Enrolled People" loading="lazy" width="70" height="30" decoding="async"
-              srcSet="/_next/image/students.png 1x, /_next/image/students.png 2x"
-              src="/_next/image/students.png" style={{ color: 'transparent' }} />
+              srcSet={`${studentsImage} 1x, ${studentsImage} 2x`}
+              src={studentsImage} style={{ color: 'transparent' }} />
             <p className="xsmall switzer">
               <span className="text-white font-bold">155,000+</span> like-minded students
             </p>

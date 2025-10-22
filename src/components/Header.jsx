@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import jtrwLogo from '../assets/images/jtrw_logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,9 +26,9 @@ const Header = () => {
     };
 
     const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('#menu-button') && 
-          !event.target.closest('#mobile-menu') && 
-          !event.target.closest('#desktop-menu')) {
+      if (isMenuOpen && !event.target.closest('#menu-button') &&
+        !event.target.closest('#mobile-menu') &&
+        !event.target.closest('#desktop-menu')) {
         setIsMenuOpen(false);
         setIsCoursesOpen(false);
       }
@@ -63,17 +65,16 @@ const Header = () => {
   );
 
   return (
-    <div className="lg:fixed top-0 lg:mb-0 z-30 w-full pointer-events-none">
+    <div className="lg:fixed top-0 lg:mb-0 z-30 w-full">
       <nav className="text-sm p-4 z-20 fixed top-0 left-0 w-full">
         <div className="w-full max-w-[1540px] mx-auto relative">
-          <div className="items-center justify-between flex w-full relative">
-            
+          <div className="items-center justify-between flex w-full relative  z-[9999]">
+
             {/* Desktop Menu */}
-            <div 
+            <div
               id="desktop-menu"
-              className={`pointer-events-none z-30 lg:pointer-events-auto duration-300 transition-all ${
-                isMenuOpen ? 'opacity-100' : 'opacity-0'
-              } absolute left-[-22px] top-0 border-[1px] border-[#ffffff1a] bg-[#02040EA1] backdrop-blur-xl pt-[53px] pointer-events-auto w-[352px]`}
+              className={`z-30 lg:pointer-events-auto duration-300 transition-all ${isMenuOpen ? 'opacity-100' : 'opacity-0'
+                } absolute left-[-22px] top-0 border-[1px] border-[#ffffff1a] bg-[#02040EA1] backdrop-blur-xl pt-[53px] pointer-events-auto w-[352px]`}
             >
               {/* The Real World */}
               <a href="#">
@@ -171,11 +172,10 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div 
+            <div
               id="mobile-menu"
-              className={`lg:hidden lg:pointer-events-none z-30 duration-300 transition-all ${
-                isMenuOpen ? 'opacity-100' : 'opacity-0 hidden'
-              } fixed left-0 top-[65px] border-[1px] border-[#ffffff1a] bg-[#02040EA1] backdrop-blur-2xl pointer-events-auto w-full h-[100vh]`}
+              className={`lg:hidden  z-30 duration-300 transition-all ${isMenuOpen ? 'opacity-100' : 'opacity-0 hidden'
+                } fixed left-0 top-[65px] border-[1px] border-[#ffffff1a] bg-[#02040EA1] backdrop-blur-2xl pointer-events-auto w-full h-[100vh]`}
             >
               {/* The Real World */}
               <a href="#">
@@ -191,7 +191,7 @@ const Header = () => {
 
               {/* Courses Dropdown Mobile */}
               <div className="mobile-dropdown">
-                <div 
+                <div
                   className="courses-trigger text-white text-lg sfpro capitalize min-w-[256px] py-3 border-b-[1px] border-[#ffffff1a] group hover:bg-[#202326] pl-8 hover:border-[#6a6d6f] duration-500 transition-all cursor-pointer"
                   onClick={toggleCourses}
                 >
@@ -287,7 +287,7 @@ const Header = () => {
 
             {/* Menu Button */}
             <div className="w-1/3 lg:w-1/5 relative z-40 flex">
-              <div 
+              <div
                 id="menu-button"
                 className="justify-between relative group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-[1px] border-transparent py-1 px-2 w-auto"
                 onClick={toggleMenu}
@@ -304,26 +304,45 @@ const Header = () => {
 
             {/* Logo (Mobile) */}
             <div className="lg:hidden flex justify-center w-1/3">
-              <img alt="Join The Real World Logo" loading="lazy" width="85" height="85" decoding="async" 
-                className="lg:hidden mt-2" 
-                srcSet="/_next/image/jtrw_logo.png 1x, /_next/image/jtrw_logo.png 2x" 
-                src="/_next/image/jtrw_logo.png" style={{ color: 'transparent' }} />
+              <img alt="Join The Real World Logo" loading="lazy" width="85" height="85" decoding="async"
+                className="lg:hidden mt-2"
+                srcSet={`${jtrwLogo} 1x, ${jtrwLogo} 2x`}
+                src={jtrwLogo} style={{ color: 'transparent' }}
+              />
+
             </div>
 
             {/* Profile Icon (Mobile) */}
-            <div className="lg:hidden flex flex-col items-center w-28 flex justify-end pointer-events-auto p-[4px] border-[2px] border-white/40 rounded-full lg:w-auto">
-              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" 
-                className="lg:hidden h-[25px] w-[25px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" 
-                style={{ color: 'rgba(113, 115, 118, 0.51)' }}>
-                <path d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"></path>
-              </svg>
+            <div className="lg:hidden flex justify-end w-1/3">
+              <Link 
+                to='/login' 
+                className="relative z-[9999] flex flex-col items-center justify-end pointer-events-auto p-[4px] border-[2px] border-white/40 rounded-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsCoursesOpen(false);
+                }}
+              >
+                <svg 
+                  stroke="currentColor" 
+                  fill="currentColor" 
+                  strokeWidth="0" 
+                  viewBox="0 0 512 512"
+                  className="h-[25px] w-[25px]" 
+                  height="1em" 
+                  width="1em" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ color: 'rgba(113, 115, 118, 0.51)' }}
+                >
+                  <path d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"></path>
+                </svg>
+              </Link>
             </div>
 
             {/* Login Button */}
             <div className="hidden lg:flex w-1/3 justify-end">
-              <a className="flex justify-end pointer-events-auto p-[4px] border-[2px] border-white/40 rounded-full lg:w-auto" href="#">
-                <button className="transition-all duration-500 hidden lg:block w-auto rounded-full border-white/25 border-[2px] switzer px-4 py-1">LOG IN</button>
-              </a>
+              <Link to='/login' className="flex justify-end pointer-events-auto p-[4px] border-[2px] border-white/40 rounded-full lg:w-auto" href="#">
+                <button className="transition-all duration-500 hidden lg:block w-auto rounded-full border-white/25 border-[2px] switzer">LOG IN</button>
+              </Link>
             </div>
           </div>
         </div>

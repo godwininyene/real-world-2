@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import lockinImage from '../assets/images/lockin.png';
+import buttonImage from '../assets/images/button.png';
+
 const LockIn = () => {
   return (
     <section className="w-full relative my-[120px]">
@@ -9,8 +13,8 @@ const LockIn = () => {
           <figure className="mb-4 relative w-full lg:hidden">
             <img alt="Tate Smoking" loading="lazy" width="1500" height="1500" decoding="async"
               className="w-full opacity-100 relative z-10 h-[256px] lg:h-auto object-cover"
-              srcSet="/_next/image/lockin.png 1x, /_next/image/lockin.png 2x"
-              src="/_next/image/lockin.png" style={{ color: 'transparent' }} />
+              srcSet={`${lockinImage} 1x, ${lockinImage} 2x`}
+              src={lockinImage} style={{ color: 'transparent' }} />
             <div className="left-fade-b pointer-events-none"></div>
             <div className="lright-fade-b pointer-events-none"></div>
             <div className="bottom-fade-b pointer-events-none"></div>
@@ -35,8 +39,8 @@ const LockIn = () => {
                 <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                    src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                    src={buttonImage} style={{ color: 'transparent' }} />
                   <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                     style={{ willChange: 'height, width, top, left' }}></div>
                 </div>
@@ -46,8 +50,8 @@ const LockIn = () => {
           <figure className="relative w-full hidden lg:block">
             <img alt="Tate Smoking" loading="lazy" width="1500" height="1500" decoding="async"
               className="w-full opacity-100 relative z-10 h-[256px] lg:h-auto object-cover"
-              srcSet="/_next/image/lockin.png 1x, /_next/image/lockin.png 2x"
-              src="/_next/image/lockin.png" style={{ color: 'transparent' }} />
+              srcSet={`${lockinImage} 1x, ${lockinImage} 2x`}
+              src={lockinImage} style={{ color: 'transparent' }} />
             <div className="left-fade-b pointer-events-none"></div>
             <div className="lg:hidden right-fade-b pointer-events-none"></div>
             <div className="bottom-fade-b pointer-events-none"></div>

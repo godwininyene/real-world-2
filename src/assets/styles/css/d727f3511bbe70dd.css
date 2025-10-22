@@ -4029,7 +4029,7 @@ footer .bottom p {
     box-shadow: 0 0 20px 3px var(--member-color-glow);
     border-radius: 15px;
     border: 1px solid var(--member-color);
-    color: #f4f4f4 !important;
+    /* color: #f4f4f4 !important; */
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4080,7 +4080,7 @@ footer .bottom p {
     font-size: 14px !important;
     white-space: nowrap;
     margin-bottom: 0 !important;
-    background-image: url(/_next/static/media/popup-bg.42458135.jpg);
+    background-image: url(./../../images/popup-bg.42458135.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-clip: text;

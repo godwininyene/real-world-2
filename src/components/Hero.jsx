@@ -2,6 +2,25 @@ import React, { useRef, useState, useEffect } from 'react';
 import { modifyStreamUrl, playVideo } from '../utils/streamUrlUtils';
 import { Link } from 'react-router-dom';
 
+// Import all images from assets
+import heroBg from '../assets/images/hero_bg.png';
+import videoBg from '../assets/images/video_bg.png';
+import jtrwLogo from '../assets/images/jtrw_logo.png';
+import studentsImage from '../assets/images/students.png';
+import buttonImage from '../assets/images/button.png';
+
+// Feature images
+import a1 from '../assets/images/a1.png';
+import a1_i from '../assets/images/a1_i.png';
+import a2 from '../assets/images/a2.png';
+import a2_i from '../assets/images/a2_i.png';
+import a3 from '../assets/images/a3.png';
+import a3_i from '../assets/images/a3_i.png';
+
+// Arrow images
+import arrowWhite from '../assets/images/arrow_white.png';
+import arrowActive from '../assets/images/arrow_active.png';
+
 const Hero = () => {
   const heroVideoUrl = modifyStreamUrl(
     'https://iframe.cloudflarestream.com/a5e71f76f355ba1bef6f98325c0e65a9'
@@ -38,24 +57,24 @@ const Hero = () => {
   const features = [
     {
       id: 1,
-      activeImage: "/_next/image/a1.png",
-      inactiveImage: "/_next/image/a1_i.png",
+      activeImage: a1,
+      inactiveImage: a1_i,
       subtitle: "WORLD CLASS",
       title: "Learning",
       active: activeIndex === 0
     },
     {
       id: 2,
-      activeImage: "/_next/image/a2.png",
-      inactiveImage: "/_next/image/a2_i.png",
+      activeImage: a2,
+      inactiveImage: a2_i,
       subtitle: "SCALE FROM ZERO",
       title: "To 10k/Mo",
       active: activeIndex === 1
     },
     {
       id: 3,
-      activeImage: "/_next/image/a3.png",
-      inactiveImage: "/_next/image/a3_i.png",
+      activeImage: a3,
+      inactiveImage: a3_i,
       subtitle: "1-ON-1 ADVICE",
       title: "From Experts",
       active: activeIndex === 2
@@ -67,8 +86,8 @@ const Hero = () => {
       <div className="absolute top-0 left-0 z-0 pointer-events-none w-full flex justify-center">
         <img alt="Background C" loading="lazy" width="1728" height="1669" decoding="async"
           className="w-full lg:w-full h-[800px] lg:h-auto mx-auto"
-          srcSet="/_next/image/hero_bg.png 1x, /_next/image/hero_bg.png 2x"
-          src="/_next/image/hero_bg.png" style={{ color: 'transparent' }} />
+          srcSet={`${heroBg} 1x, ${heroBg} 2x`}
+          src={heroBg} style={{ color: 'transparent' }} />
         <div className="glow-b max-w-full"></div>
         <div className="top-fade-b pointer-events-none"></div>
         <div className="bottom-fade-b pointer-events-none"></div>
@@ -120,8 +139,8 @@ const Hero = () => {
             <div className="hidden lg:block absolute top-80 left-0 z-20 pointer-events-none w-full flex justify-center">
               <img alt="Background C" loading="lazy" width="1728" height="1669" decoding="async"
                 className="w-full h-auto"
-                srcSet="/_next/image/video_bg.png 1x, /_next/image/video_bg.png 2x"
-                src="/_next/image/video_bg.png" style={{ color: 'transparent' }} />
+                srcSet={`${videoBg} 1x, ${videoBg} 2x`}
+                src={videoBg} style={{ color: 'transparent' }} />
               <div className="glow-b max-w-full"></div>
               <div className="right-fade-b pointer-events-none"></div>
               <div className="left-fade-b pointer-events-none"></div>
@@ -130,16 +149,16 @@ const Hero = () => {
             <div className="hidden w-full lg:flex flex-col items-center justify-center">
               <img alt="Join The Real World Logo" loading="lazy" width="85" height="85" decoding="async"
                 className="lg:w-[85px] lg:h-[85px] mt-2"
-                srcSet="/_next/image/jtrw_logo.png 1x, /_next/image/jtrw_logo.png 2x"
-                src="/_next/image/jtrw_logo.png" style={{ color: 'transparent' }} />
+                srcSet={`${jtrwLogo} 1x, ${jtrwLogo} 2x`}
+                src={jtrwLogo} style={{ color: 'transparent' }} />
               <h1 className="pagetitle w-full">THE REAL WORLD</h1>
             
               <div className="rounded-full border-[1px] border-white/50 p-[6px] mt-2 lg:mt-4 relative z-10">
                 <div className="flex flex-row items-center gap-2 justify-center px-6 py-2 rounded-full"
                   style={{ background: 'linear-gradient(100.33deg, rgba(255, 255, 255, 0.15) 5.1%, rgba(255, 255, 255, 0.016) 83.56%)', border: '1px solid rgba(153, 153, 153, 0.25)' }}>
                   <img alt="Enrolled People" loading="lazy" width="48" height="22" decoding="async"
-                    srcSet="/_next/image/students.png 1x, /_next/image/students.png 2x"
-                    src="/_next/image/students.png" style={{ color: 'transparent' }} />
+                    srcSet={`${studentsImage} 1x, ${studentsImage} 2x`}
+                    src={studentsImage} style={{ color: 'transparent' }} />
                   <p className="xsmall switzer"><span className="text-white font-extrabold text-lg">155,000+</span> students</p>
                 </div>
               </div>
@@ -201,8 +220,8 @@ const Hero = () => {
               <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                 <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                   className="w-[340px] h-[auto]"
-                  srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                  src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                  srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                  src={buttonImage} style={{ color: 'transparent' }} />
                 <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                   style={{ willChange: 'height, width, top, left' }}></div>
               </div>
@@ -271,8 +290,8 @@ const Hero = () => {
                         className={`w-[30px] h-[15px] lg:w-[40px] lg:h-[20px] transition-all duration-500 ${
                           feature.active ? 'opacity-0' : 'opacity-100'
                         }`}
-                        srcSet="/_next/image/arrow_white.png 1x, /_next/image/arrow_white.png 2x"
-                        src="/_next/image/arrow_white.png" 
+                        srcSet={`${arrowWhite} 1x, ${arrowWhite} 2x`}
+                        src={arrowWhite} 
                         style={{ color: 'transparent' }}
                       />
                       {/* Active Arrow */}
@@ -285,8 +304,8 @@ const Hero = () => {
                         className={`w-[30px] h-[15px] lg:w-[40px] lg:h-[20px] transition-all duration-500 absolute top-0 left-0 ${
                           feature.active ? 'opacity-100' : 'opacity-0'
                         }`}
-                        srcSet="/_next/image/arrow_active.png 1x, /_next/image/arrow_active.png 2x"
-                        src="/_next/image/arrow_active.png" 
+                        srcSet={`${arrowActive} 1x, ${arrowActive} 2x`}
+                        src={arrowActive} 
                         style={{ color: 'transparent' }}
                       />
                     </div>

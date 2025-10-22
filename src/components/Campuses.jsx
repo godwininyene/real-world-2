@@ -1,70 +1,94 @@
 import React, { useRef, useState } from 'react';
 import { modifyStreamUrl, playVideo } from '../utils/streamUrlUtils';
 
+// Import all images from assets
+import aiIcon from '../assets/images/ai_icon.svg';
+import altcoinIcon from '../assets/images/altcoin_icon.svg';
+import businessIcon from '../assets/images/business_icon.svg';
+import cacmIcon from '../assets/images/cacm_icon.svg';
+import ccIcon from '../assets/images/cc_icon.svg';
+import copywritingIcon from '../assets/images/copywriting_icon.svg';
+import cryptoIcon from '../assets/images/crypto_icon.svg';
+import ecommerceIcon from '../assets/images/ecommerce_icon.svg';
+import fitnessIcon from '../assets/images/fitness_icon.svg';
+
+import aiImage from '../assets/images/ai_1.png';
+import altcoinImage from '../assets/images/altcoin_campus.png';
+import businessImage from '../assets/images/business_1.png';
+import cacmImage from '../assets/images/cacm_1.png';
+import ccImage from '../assets/images/cc_1.png';
+import copywritingImage from '../assets/images/copywriting_1.png';
+import cryptoImage from '../assets/images/crypto_1.png';
+import ecommerceImage from '../assets/images/ecommerce_1.png';
+import fitnessImage from '../assets/images/fitness_1.png';
+
+import campusBg from '../assets/images/campus_bg.png';
+import newSkillsIcon from '../assets/images/new_skills.svg';
+
 const Campuses = () => {
   const campuses = [
     {
-      icon: '/ai_icon.svg',
+      icon: aiIcon,
       title: 'A.I Automated Agency',
       description: 'We teach anybody, even with limited technical knowledge, the skills required to build AI systems. Sell the system to people with online companies or start an online company run by your own AI.',
       video: 'https://iframe.cloudflarestream.com/2a360768c8477c4b3c94bd42ab1c0200',
-      image: '/_next/image/ai_1.png'
+      image: aiImage
     },
     {
-      icon: '/altcoin_icon.svg',
+      icon: altcoinIcon,
       title: 'Altcoin Campus',
       description: 'The Real World Altcoin Campus trains warriors. Turn $20 into $7,000 with expert guidance. High-risk, calculated moves—never gambling.',
       video: 'https://iframe.cloudflarestream.com/1c7793665e93644101f8ec2f88cbb76d',
-      image: '/_next/image/altcoin_campus.png'
+      image: altcoinImage
     },
     {
-      icon: '/business_icon.svg',
+      icon: businessIcon,
       title: 'Business Mastery',
       description: 'The Real World Business mastery and diplomacy training is about mastering the art of leadership and scaling operations to make more money.',
       video: 'https://iframe.cloudflarestream.com/5fcdf4882b4545a84028222066db817b',
-      image: '/_next/image/business_1.png'
+      image: businessImage
     },
     {
-      icon: '/cacm_icon.svg',
+      icon: cacmIcon,
       title: 'Client Acquisition + SM',
       description: 'Acquire, retain, and grow your client base with strategies that are as effective as they are explosive in the Client Acquisition + SM Campus.',
       video: 'https://iframe.cloudflarestream.com/482573672d803ef649d65c1a7e04db7c',
-      image: '/_next/image/cacm_1.png'
+      image: cacmImage
     },
     {
-      icon: '/cc_icon.svg',
+      icon: ccIcon,
       title: 'Content Creation',
       description: 'In the age of technology, the value of videos and landing pages surpass the worth of real estate. It\'s crucial to leverage digital assets and we will teach you how.',
       video: 'https://iframe.cloudflarestream.com/bb671f136b1d46366aa8c4086023ee13',
-      image: '/_next/image/cc_1.png'
+      image: ccImage
     },
     {
-      icon: '/copywriting_icon.svg',
+      icon: copywritingIcon,
       title: 'Copywriting',
       description: 'Words are your warriors, and every sentence is a strategy. Master the craft of copywriting with us, and you\'ll learn to turn prose into profit.',
       video: 'https://iframe.cloudflarestream.com/a3275cb75cdc1f06b646942fc851b7ce',
-      image: '/_next/image/copywriting_1.png'
+      image: copywritingImage
     },
     {
-      icon: '/crypto_icon.svg',
+      icon: cryptoIcon,
       title: 'Crypto Investing',
       description: 'Within the Cryptocurrency campus you have real time information to not only the professor but also 155,000+ other students. This allows you to identify trends and what influences the price of coins.',
       video: 'https://iframe.cloudflarestream.com/7e8cc9214c4439622f86d38ff9188672',
-      image: '/_next/image/crypto_1.png'
+      image: cryptoImage
     },
     {
-      icon: '/ecommerce_icon.svg',
+      icon: ecommerceIcon,
       title: 'E-Commerce',
       description: 'Imagine launching a store and instantly connecting with the global market by morning. Online commerce acts as your gateway to rapid retail success.',
       video: 'https://iframe.cloudflarestream.com/545525ce2ac830b7bde6c45217b33d89',
-      image: '/_next/image/ecommerce_1.png'
+      image: ecommerceImage
     },
     {
-      icon: '/fitness_icon.svg',
+      icon: fitnessIcon,
       title: 'Fitness',
       description: 'A strong body is a strong mind. The Real World contains a complete fitness campus including personal trainers and meal plans. Health is wealth.',
       video: 'https://iframe.cloudflarestream.com/8263a16581555008e1eae4003dbfbe22',
-      image: '/_next/image/fitness_1.png'
+      image: fitnessImage
     }
   ];
 
@@ -89,8 +113,8 @@ const Campuses = () => {
           </div>
           <img alt="Campus Background" loading="lazy" width="577" height="406" decoding="async"
             className="w-full h-full absolute top-0 left-0 z-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-500"
-            srcSet="/_next/image/campus_bg.png 1x, /_next/image/campus_bg.png 2x"
-            src="/_next/image/campus_bg.png" style={{ color: 'transparent' }} />
+            srcSet={`${campusBg} 1x, ${campusBg} 2x`}
+            src={campusBg} style={{ color: 'transparent' }} />
           <figure className="pt-6 px-6 z-10 relative">
             <img alt={`${campus.title} Icon`} loading="lazy" width="20" height="20" decoding="async"
               src={campus.icon} style={{ color: 'transparent' }} />
@@ -162,7 +186,7 @@ const Campuses = () => {
           </div>
           <div className="flex mx-auto items-center justify-center mb-2 mt-12 gap-4">
             <img alt="New Skills Added Regularly" loading="lazy" width="28" height="28" decoding="async"
-              src="/new_skills.svg" style={{ color: 'transparent' }} />
+              src={newSkillsIcon} style={{ color: 'transparent' }} />
             <h5 className="gradient-text capitalize switzer">new skills added regularly</h5>
           </div>
           <p className="px-4 text-center switzer">
@@ -189,7 +213,7 @@ const Campuses = () => {
           </div>
           <div className="flex mx-auto items-center justify-center mb-2 mt-12 gap-4 px-4">
             <img alt="New Skills Added Regularly" loading="lazy" width="28" height="28" decoding="async"
-              src="/new_skills.svg" style={{ color: 'transparent' }} />
+              src={newSkillsIcon} style={{ color: 'transparent' }} />
             <h5 className="gradient-text !text-[16px]">NEW SKILLS REGULARLY ADDED</h5>
           </div>
           <p className="px-4 text-center">

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import buttonImage from '../assets/images/button.png';
+import methodsIcon from '../assets/images/methods.svg';
+
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -92,8 +96,8 @@ const FAQ = () => {
                 <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                    src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                    src={buttonImage} style={{ color: 'transparent' }} />
                   <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                     style={{ willChange: 'height, width, top, left' }}></div>
                 </div>
@@ -101,7 +105,7 @@ const FAQ = () => {
             </div>
             <div className="flex flex-row items-center gap-2 justify-center mt-[25px] px-4">
               <img alt="Access 12+" loading="lazy" width="22" height="22" decoding="async"
-                src="/methods.svg" style={{ color: 'transparent' }} />
+                src={methodsIcon} style={{ color: 'transparent' }} />
               <p className="xsmall">
                 <span className="text-white font-bold text-lg">Access 12+</span> wealth creation methods
               </p>

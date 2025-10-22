@@ -1,17 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import images from assets
+import scrollimg1 from '../assets/images/scrollimg1.png';
+import scrollimg2 from '../assets/images/scrollimg2.png';
+import scrollimg3 from '../assets/images/scrollimg3.png';
+import scrollimg4 from '../assets/images/scrollimg4.png';
+import scrollimg5 from '../assets/images/scrollimg5.png';
+import scrollimg6 from '../assets/images/scrollimg6.png';
+import section3Bg from '../assets/images/section3_bg.png';
+import buttonImage from '../assets/images/button.png';
+
 const WorkHard = () => {
+  const scrollImages = [scrollimg1, scrollimg2, scrollimg3, scrollimg4, scrollimg5, scrollimg6];
+
   return (
     <section className="w-full relative my-[80px] z-50">
       <div className="relative lg:hidden h-[240px] w-full mb-4">
         <div className="w-full flex flex-nowrap h-[240px] my-16 relative scrollelement lg:hidden"
           style={{ transform: 'translateX(-362.414px)', transition: 'transform 0.1s linear' }}>
-          {[1, 2, 3, 4, 5, 6].map(num => (
-            <img key={num} alt={`Scroll Testimonial ${num}`} loading="lazy" width="288" height="344" decoding="async"
+          {scrollImages.map((image, index) => (
+            <img key={index} alt={`Scroll Testimonial ${index + 1}`} loading="lazy" width="288" height="344" decoding="async"
               className="shrink-0 h-[240px] w-[201px]"
-              srcSet={`/_next/image/scrollimg${num}.png 1x, /_next/image/scrollimg${num}.png 2x`}
-              src={`/_next/image/scrollimg${num}.png`} style={{ color: 'transparent' }} />
+              srcSet={`${image} 1x, ${image} 2x`}
+              src={image} style={{ color: 'transparent' }} />
           ))}
         </div>
         <div className="top-fade-b pointer-events-none"></div>
@@ -24,8 +36,8 @@ const WorkHard = () => {
           <figure className="lg:hidden w-full absolute top-0 left-0 z-0 opacity-50">
             <img alt="Ask Yourself" loading="lazy" width="934" height="745" decoding="async"
               className="w-full opacity-35 lg:opacity-100 relative z-0"
-              srcSet="/_next/image/section3_bg.png 1x, /_next/image/section3_bg.png 2x"
-              src="/_next/image/section3_bg.png" style={{ color: 'transparent' }} />
+              srcSet={`${section3Bg} 1x, ${section3Bg} 2x`}
+              src={section3Bg} style={{ color: 'transparent' }} />
             <div className="top-fade-b pointer-events-none"></div>
             <div className="left-fade-b pointer-events-none"></div>
             <div className="right-fade-b pointer-events-none"></div>
@@ -48,8 +60,8 @@ const WorkHard = () => {
                 <div className="button-container duration-500 transition-all w-full group overflow-hidden">
                   <img alt="Button Join TRW" loading="lazy" width="380" height="100" decoding="async"
                     className="w-[340px] h-[auto]"
-                    srcSet="/_next/image/button.png 1x, /_next/image/button.png 2x"
-                    src="/_next/image/button.png" style={{ color: 'transparent' }} />
+                    srcSet={`${buttonImage} 1x, ${buttonImage} 2x`}
+                    src={buttonImage} style={{ color: 'transparent' }} />
                   <div className="left-[50%] top-[50%] w-[0px] h-[0px] bg-[#ffffff1a] rounded-full group-hover:w-[500px] group-hover:h-[500px] duration-500 transition-all absolute pointer-events-none text-center group-hover:left-[calc(50%-250px)] group-hover:top-[calc(50%-250px)]"
                     style={{ willChange: 'height, width, top, left' }}></div>
                 </div>
@@ -59,8 +71,8 @@ const WorkHard = () => {
           <figure className="hidden lg:block relative">
             <img alt="Ask Yourself" loading="lazy" width="934" height="745" decoding="async"
               className="w-full opacity-35 lg:opacity-100 relative z-0"
-              srcSet="/_next/image/section3_bg.png 1x, /_next/image/section3_bg.png 2x"
-              src="/_next/image/section3_bg.png" style={{ color: 'transparent' }} />
+              srcSet={`${section3Bg} 1x, ${section3Bg} 2x`}
+              src={section3Bg} style={{ color: 'transparent' }} />
             <div className="top-fade-b pointer-events-none"></div>
             <div className="left-fade-b pointer-events-none"></div>
             <div className="right-fade-b pointer-events-none"></div>
